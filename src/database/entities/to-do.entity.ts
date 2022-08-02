@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";// check validator data boday FE truyền xuống ko check colum db
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -6,17 +6,13 @@ export class TodoEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column('varchar',{nullable :false})
-    @IsString()
-    @IsNotEmpty()
+    @Column({nullable :false})
     name: string;
 
-    @Column('varchar',{nullable :false})
-    @IsString()
-    @IsNotEmpty()
+    @Column({nullable :false})
     description: string;
 
-    @Column('varchar',{nullable :false})
+    @Column({default: true})
     isDone: boolean;
 
 }
